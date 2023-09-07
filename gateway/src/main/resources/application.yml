@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE  # 使用服务名称，前面带上 "lb://"，这表示使用负载均衡
+          predicates:
+            - Path=/user/**
+        - id: order-service
+          uri: lb://ORDER-SERVICE  # 使用服务名称
+          predicates:
+            - Path=/order/**
