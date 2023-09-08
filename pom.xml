@@ -10,6 +10,7 @@
         <module>common-seata</module>
         <module>common-redis</module>
         <module>common-security</module>
+        <module>repository-edge</module>
     </modules>
 
 
