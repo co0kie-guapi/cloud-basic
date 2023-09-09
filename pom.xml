@@ -11,6 +11,7 @@
         <module>common-redis</module>
         <module>common-security</module>
         <module>repository-edge</module>
+        <module>common-entity</module>
     </modules>
 
 

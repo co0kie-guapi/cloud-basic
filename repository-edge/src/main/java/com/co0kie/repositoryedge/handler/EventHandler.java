@@ -2,6 +2,7 @@ package com.co0kie.repositoryedge.handler;
 
 
 import com.co0kie.repositoryedge.domain.AsyncResult;
+import com.guapi.entity.base.BaseEntity;
 
 import java.util.function.Function;
 
@@ -9,13 +10,15 @@ import java.util.function.Function;
  * 用于事件处理的handler
  * @author co0kie
  */
-public interface EventHandler<T> {
+public interface EventHandler<T extends BaseEntity> {
 
     /**
-     *
-     * @param callBack
+     * 执行handler
+     * @param data
      * @return
      */
-    AsyncResult<T> doHandler(Function callBack);
+    void doHandler(T data);
+
+
 
 }
