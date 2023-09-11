@@ -1,13 +1,14 @@
 package com.co0kie.repositoryedge.core;
 
 import com.co0kie.repositoryedge.domain.AsyncResult;
+import com.guapi.entity.base.BaseEntity;
 
 
 /**
  * 持久化保存的PersistentEntry
  * @author co0kie
  */
-public interface PersistentEntry {
+public interface PersistentEntry<T extends BaseEntity> {
 
     /**
      * 初始化
@@ -16,24 +17,28 @@ public interface PersistentEntry {
 
 
     /**
-     * 持久化之前
+     * 插入持久化
+     * @param data
      * @return
      */
-    Boolean beforeProcessor();
+    Boolean doCreatPersistent(T data);
 
 
     /**
-     * 做持久化
+     * 更新持久化
+     * @param data
      * @return
      */
-    Boolean doPersistent();
+    Boolean doUpdatePersistent(T data);
 
 
     /**
-     * 后置处理
+     * 删除
+     * @param data
      * @return
      */
-    Boolean postProcessor();
+    Boolean doRemove(T data);
+
 
 
 }
